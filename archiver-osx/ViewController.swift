@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  archiver-osx
 //
@@ -9,7 +8,6 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +19,13 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    
+    @IBAction func buttan(_ sender: Any) {
+NSLog("Butts!")
+        
+    }
+    
 
 }
 
