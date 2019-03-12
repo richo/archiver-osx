@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import AFNetworking
 
 var URL_BASE = "https://onatopp.psych0tik.net"
 
