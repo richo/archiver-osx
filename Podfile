@@ -1,5 +1,7 @@
+platform :osx, '10.14'
+use_frameworks!
+
 target "archiver-osx" do
     source 'https://github.com/CocoaPods/Specs.git'
-    # platform :ios, '7.0'
-    pod 'AFNetworking', '~> 2.5'
+    pod 'Alamofire', '~> 5.0.0-beta.3'
 end

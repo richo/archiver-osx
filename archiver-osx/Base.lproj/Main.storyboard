@@ -724,7 +724,7 @@
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-D2-CkY">
                                 <rect key="frame" x="192" y="156" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="username" drawsBackground="YES" id="Y4i-7z-gn5">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="email" drawsBackground="YES" id="Y4i-7z-gn5">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -745,6 +745,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="email" destination="AXj-D2-CkY" id="MdC-AW-965"/>
                         <outlet property="password" destination="6Tf-7y-J8A" id="MtL-p6-UsF"/>
                         <outlet property="username" destination="AXj-D2-CkY" id="NUA-Lh-oUE"/>
                     </connections>

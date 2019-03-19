@@ -6,55 +6,44 @@
 //
 
 import Cocoa
-import AFNetworking
+import Alamofire
 
 var URL_BASE = "https://onatopp.psych0tik.net"
 
 class ViewController: NSViewController {
-    @IBOutlet weak var username: NSTextField!
     @IBOutlet weak var password: NSSecureTextField!
-    
-    let defaultSession = URLSession(configuration: .default)
-    var dataTask: URLSessionDataTask?
+    @IBOutlet weak var email: NSTextField!
     
     @IBAction func loginButton(_ sender: Any) {
         let errorMessage: String = String()
-        NSLog("Trying to login with: %@:%@", username.stringValue, password.stringValue)
+        // NSLog("Trying to login with: %@:%@", email.stringValue, password.stringValue)
         
         var url = URLComponents(string: URL_BASE)!
-        url.path = "/json/login"
+        url.path = "/json/signin"
         
-        var request = URLRequest(url: url.url!)
-        request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = postData.dataUsingEncoding(NSUTF8StringEncoding)
-        var connection = NSURLConnection(request: request, delegate: nil, startImmediately: true)
-       
-            dataTask = defaultSession.dataTask(with: url) { data, response, error in
-                defer { self.dataTask = nil }
-                
-                if let error = error {
-                    print("Got error:", error)
-                } else if let data = data,
-                    let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
-                    print("Got login:", data)
+        let parameters = [
+            "email": email.stringValue,
+            "password": password.stringValue,
+        ]
+        let res = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { closureResponse in
+                if let json = closureResponse.result.value as? [String: Any] {
+                    // Figure out how to pattern match on either a Token or Error key
+                } else {
+                    NSLog("Login failed.")
                 }
-            }
-
-            dataTask?.resume()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
 }
