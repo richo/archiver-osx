@@ -10,7 +10,7 @@ import Alamofire
 
 var URL_BASE = "https://onatopp.psych0tik.net"
 
-class ViewController: NSViewController {
+class LoginController: NSViewController {
     @IBOutlet weak var password: NSSecureTextField!
     @IBOutlet weak var email: NSTextField!
     
